@@ -16,9 +16,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-    <link href="/favicon.png" rel="icon">
+    <link href="http://chepeatio.github.io/favicon.png" rel="icon">
 
-  <link href="/theme/css/main.css" media="screen, projection"
+  <link href="http://chepeatio.github.io/theme/css/main.css" media="screen, projection"
         rel="stylesheet" type="text/css">
 
   <link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic"
@@ -29,7 +29,7 @@
 
 <body>
   <header role="banner"><hgroup>
-  <h1><a href="/">Chepeatio's Blog</a></h1>
+  <h1><a href="http://chepeatio.github.io/">Chepeatio's Blog</a></h1>
 </hgroup></header>
   <nav role="navigation"><ul class="subscription" data-subscription="rss">
 </ul>
@@ -37,7 +37,10 @@
 
 <ul class="main-navigation">
       <li >
-        <a href="/category/life.html">Life</a>
+        <a href="http://chepeatio.github.io/category/life.html">Life</a>
+      </li>
+      <li >
+        <a href="http://chepeatio.github.io/category/test.html">Test</a>
       </li>
 </ul></nav>
   <div id="main">
@@ -46,10 +49,49 @@
   		<article>
 <header>
       <h1 class="entry-title">
-        <a href="/hello-world.html">Hello World!</a>
+        <a href="http://chepeatio.github.io/junitxue-xi-bi-ji-zhi-yi.html">JUnit学习笔记之一</a>
       </h1>
     <p class="meta">
-<time datetime="2015-03-22T10:06:00+08:00" pubdate>日 22 三月 2015</time>    </p>
+<time datetime="2015-06-01T19:42:00+08:00" pubdate>2015-06-01 19:42</time>    </p>
+</header>
+
+  <div class="entry-content"><h2>写在开头</h2>
+<p>虽然我的研究生科研方向是软件工程，但自己对测试的认识几乎为零。平时听大家在组会上的研究内容，以为测试工作就是将写好的代码丢给一个测试工具（<em>不需要自己想测试用例</em>），全自动完成并给出测试报告。然而前两天偶然接触JUnit，我才发现这么牛的单元测试工具还是需要自己写测试用例（<em>理想和现实的差距</em>），它只让自己少写了个main（<em>第一反应</em>）。今天照着csdn上的一篇博文尝试使用JUnit，果然是我的菜。所以花点时间把JUnit的基本用法整理一下，记录在自己的博客里。</p>
+<h2>JUnit介绍</h2>
+<p>JUnit是一个开源的Java单元测试框架，由<a href="http://en.wikipedia.org/wiki/Erich_Gamma">Erich Gamma</a>和<a href="http://en.wikipedia.org/wiki/Kent_Beck">Kent Beck</a>建立。JUnit测试是白盒测试，即所谓的程序员测试（<em>怪不得是我的菜</em>）。这里是<a href="http://www.junit.org/">JUnit项目主页</a>。</p>
+<h3>JUnit特性</h3>
+<ul>
+<li>提供的API可以让码农写出测试结果明确的可重用单元测试用例</li>
+<li>提供三种方式来显示测试结果，并且可以扩展</li>
+<li>提供了单元测试用例成批运行的功能</li>
+<li>整个框架设计良好，易扩展</li>
+</ul>
+<h3>JUnit优点</h3>
+<ul>
+<li>免费且开源，所以不需要购买（<em>和破解</em>）</li>
+<li>将开发代码和测试代码分开，代码更加清晰易懂</li>
+<li>自动判断测试结果</li>
+<li>测试更加可靠<ul>
+<li>原来自己一直用main()测试，但它一般是待测试类的一部分，具有访问私有成员和方法的权限</li>
+<li>JUnit作为外部测试工具，具有的访问权限和其它外部程序相同</li>
+</ul>
+</li>
+<li>对于极限编程、重构而言<ul>
+<li>在编写代码前先写测试，强制自己确定代码的功能和逻辑</li>
+<li>测试和编码都是增量式，减小回归错误的纠错难度</li>
+</ul>
+</li>
+</ul>
+<p>这些优点都是针对我们平时单元测试的弊病，所以自己用起来会比较顺手。</p>
+<p>后续博文将介绍JUnit基本用法。</p></div>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
+        <a href="http://chepeatio.github.io/hello-world.html">Hello World!</a>
+      </h1>
+    <p class="meta">
+<time datetime="2015-03-22T15:33:00+08:00" pubdate>2015-03-22 15:33</time>    </p>
 </header>
 
   <div class="entry-content"><p>Where there is a will, there is a way!</p></div>
@@ -63,7 +105,10 @@
     <h1>Recent Posts</h1>
     <ul id="recent_posts">
       <li class="post">
-          <a href="/hello-world.html">Hello World!</a>
+          <a href="http://chepeatio.github.io/junitxue-xi-bi-ji-zhi-yi.html">JUnit学习笔记之一</a>
+      </li>
+      <li class="post">
+          <a href="http://chepeatio.github.io/hello-world.html">Hello World!</a>
       </li>
     </ul>
   </section>
@@ -71,14 +116,15 @@
       
     <h1>Categories</h1>
     <ul id="recent_posts">
-        <li><a href="/category/life.html">Life</a></li>
+        <li><a href="http://chepeatio.github.io/category/life.html">Life</a></li>
+        <li><a href="http://chepeatio.github.io/category/test.html">Test</a></li>
     </ul>
   </section>
  
 
   <section>
   <h1>Tags</h1>
-  </section>
+    <a href="http://chepeatio.github.io/tag/test.html">test</a>,    <a href="http://chepeatio.github.io/tag/eclipse.html">Eclipse</a>,    <a href="http://chepeatio.github.io/tag/junit.html">JUnit</a>  </section>
 
 
     <section>
@@ -101,8 +147,8 @@
     Copyright &copy;  2015  Che Kedar &mdash;
   <span class="credit">Powered by <a href="http://getpelican.com">Pelican</a></span>
 </p></footer>
-  <script src="/theme/js/modernizr-2.0.js"></script>
-  <script src="/theme/js/ender.js"></script>
-  <script src="/theme/js/octopress.js" type="text/javascript"></script>
+  <script src="http://chepeatio.github.io/theme/js/modernizr-2.0.js"></script>
+  <script src="http://chepeatio.github.io/theme/js/ender.js"></script>
+  <script src="http://chepeatio.github.io/theme/js/octopress.js" type="text/javascript"></script>
 </body>
 </html>
