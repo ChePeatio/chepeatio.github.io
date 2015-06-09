@@ -55,28 +55,34 @@
 <time datetime="2015-06-01T19:42:00+08:00" pubdate>2015-06-01 19:42</time>    </p>
 </header>
 
-  <div class="entry-content"><h1 id="1">写在开头</h1>
+  <div class="entry-content"><h2 id="1">写在开头</h2>
 
 <p>虽然我的研究生科研方向是软件工程，但自己对测试的认识几乎为零。平时听大家在组会上的研究内容，以为测试工作就是将写好的代码丢给一个测试工具（<em>不需要自己想测试用例</em>），全自动完成并给出测试报告。然而前两天偶然接触JUnit，我才发现这么牛的单元测试工具还是需要自己写测试用例（<em>理想和现实的差距</em>），它只让自己少写了个main（<em>第一反应</em>）。今天照着csdn上的几篇博文尝试在eclipse中使用JUnit4，果然是我的菜。所以花点时间把JUnit的基本用法整理一下，记录在自己的博客里。以下是本文结构：</p>
 <ul>
 <li><a href="#1">写在开头</a></li>
-<li><a href="#2">JUnit介绍</a></li>
+<li><a href="#2">JUnit介绍</a><ul>
 <li><a href="#2.1">JUnit特性</a></li>
 <li><a href="#2.2">JUnit优点</a></li>
-<li><a href="#3">JUnit使用</a></li>
+</ul>
+</li>
+<li><a href="#3">JUnit使用</a><ul>
 <li><a href="#3.1">JUnit简单上手</a></li>
 <li><a href="#3.2">JUnit基本用法</a></li>
 <li><a href="#3.3">JUnit高阶用法</a></li>
-<li><a href="#4">JUnit功能总结</a></li>
+</ul>
+</li>
+<li><a href="#4">JUnit功能总结</a><ul>
 <li><a href="#4.1">JUnit面向测试方法的Annotations</a></li>
 <li><a href="#4.2">JUnit内建的Runner</a></li>
+</ul>
+</li>
 <li><a href="#5">结束语</a></li>
 <li><a href="#6">参考资料</a></li>
 </ul>
-<h1 id="2">JUnit介绍</h1>
+<h2 id="2">JUnit介绍</h2>
 
 <p>JUnit是一个开源的Java单元测试框架，由<a href="http://en.wikipedia.org/wiki/Erich_Gamma">Erich Gamma</a>和<a href="http://en.wikipedia.org/wiki/Kent_Beck">Kent Beck</a>建立。JUnit测试是白盒测试，即所谓的程序员测试（<em>怪不得是我的菜</em>）。这里是<a href="http://www.junit.org/">JUnit项目主页</a>。目前JUnit的版本达到v4.12，本文使用的也是eclipse附带的JUnit4。</p>
-<h2 id="2.1">JUnit特性</h2>
+<h3 id="2.1">JUnit特性</h3>
 
 <ul>
 <li>提供的API可以让码农写出测试结果明确的可重用单元测试用例</li>
@@ -84,7 +90,7 @@
 <li>提供了单元测试用例成批运行的功能</li>
 <li>整个框架设计良好，易扩展</li>
 </ul>
-<h2 id="2.2">JUnit优点</h2>
+<h3 id="2.2">JUnit优点</h3>
 
 <ul>
 <li>免费且开源，所以不需要购买（<em>和破解</em>）</li>
@@ -102,10 +108,10 @@
 </li>
 </ul>
 <p>这些功能都是针对单元测试的弊病，所以自己用起来会比较顺手。</p>
-<h1 id="3">JUnit使用</h1>
+<h2 id="3">JUnit使用</h2>
 
 <p>下面将以一些简单的单元测试演示如何使用JUnit，并进一步说明JUnit的用法和各种功能。本文演示环境是win8，eclipse Luna，JDK 1.8， JUnit4 Test。</p>
-<h2 id="3.1">JUnit简单上手</h2>
+<h3 id="3.1">JUnit简单上手</h3>
 
 <p>首先写一个待测试的工程，这里编写了一个Calculator类，这是一个简单实现四则运算以及平方开方的计算器类。然后对这些功能进行单元测试。这个类并不是完全正确的，这里故意保留了一些Bug用于测试，在代码中都有说明。该类代码如下：</p>
 <div class="highlight"><pre>package main;
@@ -142,9 +148,9 @@ public class Calculator {
 
 <p>接下来将JUnit单元测试库引入该项目：右击<strong>项目</strong>-&gt;点击<strong>属性</strong>-&gt;点击<strong>Java Build Path</strong>-&gt;选择<strong>Libraries</strong>选项卡-&gt;点击<strong>Add Library…</strong>-&gt;选择<strong>JUnit</strong>并点击<strong>Next</strong>-&gt;选择<strong>JUnit 4</strong>并点击<strong>Finish</strong>即可。至此JUnit4 Library被包含在待测试项目中。</p>
 <p>然后生成JUnit测试框架，首先在工程中新建一个<strong>package</strong>：test，并在该package中新建一个<strong>JUnit Test Case</strong>，如下图所示：</p>
-<p><img alt="配置JUnit Test Case" src="/img/创建JUnit测试实例.png" title="配置JUnit Test Case" /></p>
+<p><img alt="配置JUnit Test Case" src="/images/创建JUnit测试实例.png" title="配置JUnit Test Case" /></p>
 <p>点击<strong>Next</strong>，eclipse会自动列出Calculator类中包含的方法，需要选择待测试的函数。这里选择加、减、乘、除4个函数，如图所示：</p>
-<p><img alt="选择待测试方法" src="/img/待测试方法.png" title="选择待测试方法" /></p>
+<p><img alt="选择待测试方法" src="/images/待测试方法.png" title="选择待测试方法" /></p>
 <p>点击<strong>Finish</strong>，eclipse将自动生成一个新类<strong>CalculatorTest</strong>，里面包含一些空的测试方法。接下来填充这些测试方法以得到有效的测试用例。下面是演示测试用例代码：</p>
 <div class="highlight"><pre><span class="n">package</span> <span class="n">test</span><span class="p">;</span>
 
@@ -196,9 +202,9 @@ public class Calculator {
 
 
 <p>到这里就可以运行测试代码了。对CalculatorTest右击，选择<strong>Run As</strong> -&gt; <strong>JUnit Test</strong>来运行测试，结果如下图所示：</p>
-<p><img alt="简单测试的结果" src="/img/简单测试的结果.png" title="简单测试的结果" /></p>
+<p><img alt="简单测试的结果" src="/images/简单测试的结果.png" title="简单测试的结果" /></p>
 <p>图中测试结果表示共执行4个测试，其中1个测试被忽略，还有1个测试失败，失败原因是期望结果是8，而运行结果是9。整个结果简单明了，十分顺畅。接下来将详细说明JUnit用法和功能。</p>
-<h2 id="3.2">JUnit基本用法</h2>
+<h3 id="3.2">JUnit基本用法</h3>
 
 <p>前一节主要展示了JUnit的简单Demo，本节将对JUnit的基本用法进行详解，从而有更深的了解。</p>
 <ol>
@@ -274,7 +280,7 @@ public void setUp() throws Exception {
 </blockquote>
 </li>
 </ol>
-<h2 id="3.3">JUnit高阶用法</h2>
+<h3 id="3.3">JUnit高阶用法</h3>
 
 <p>前两节讲解的JUnit使用可以应付简单的单元测试需求，同时JUnit提供了更加高级的用法以解决复杂的测试需求。下面将简述相关功能。</p>
 <ol>
@@ -459,9 +465,9 @@ public void divideByZero() {
 </li>
 </ol>
 <p>至此是我所学习和参考的JUnit常见用法。下面对JUnit的功能进行总结，以方便以后的查询。</p>
-<h1 id="4">JUnit功能总结</h1>
+<h2 id="4">JUnit功能总结</h2>
 
-<h2 id="4.1">JUnit面向测试方法的Annotations</h2>
+<h3 id="4.1">JUnit面向测试方法的Annotations</h3>
 
 <p>此处汇总了前文中涉及到的JUnit标注（Annotation），其中也包含前文介绍的4个Fixture Annotations。</p>
 <table border=”1″>
@@ -503,7 +509,7 @@ public void divideByZero() {
 </tr>
 </table>
 
-<h2 id="4.2">JUnit内建的Runner</h2>
+<h3 id="4.2">JUnit内建的Runner</h3>
 
 <p>Runner是JUnit运行的基础，在前面的介绍中我们也可以发现其重要性。当然在使用特殊Runner时记得添加@RunWith Annotation。下面将汇总JUnit提供的Runner以备查询。</p>
 <table>
@@ -533,10 +539,10 @@ public void divideByZero() {
 </table>
 
 <p>另外JUnit还有一些处于测试的runner和第三方runner，如果有必要，可以查看JUnit的<a href="https://github.com/junit-team/junit/wiki/Test-runners">Github主页</a>。</p>
-<h1 id="5">结束语</h1>
+<h2 id="5">结束语</h2>
 
 <p>本文主要涉及的是基于eclipse的JUnit4使用，其它平台的使用应该大同小异。通过这段时间的学习和码字，对JUnit4越发钦佩，希望再接再厉，在平时的工作学习中有效利用这一利器。最后我要感谢参考博文的博主！</p>
-<h1 id="6">参考资料</h1>
+<h2 id="6">参考资料</h2>
 
 <p>[1] <a href="http://blog.csdn.net/andycpp/article/details/1327147">在Eclipse中使用JUnit4进行单元测试</a></p>
 <p>[2] <a href="http://www.cnblogs.com/qwop/p/3431303.html#_Toc372652304">使用JUnit进行单元测试</a></p>
@@ -586,7 +592,7 @@ Please enable JavaScript to view the comments powered by <a href="http://duoshuo
     <h1>Recent Posts</h1>
     <ul id="recent_posts">
       <li class="post">
-          <a href="http://chepeatio.github.io/JUnit_LearningRecord.html">JUnit学习笔记</a>
+          <a href="http://chepeatio.github.io/JUnit_Tutorial.html">JUnit学习笔记</a>
       </li>
       <li class="post">
           <a href="http://chepeatio.github.io/hello-world.html">Hello World!</a>
