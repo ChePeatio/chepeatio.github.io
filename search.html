@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="zh_cn" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-    <title>Tags - Chepeatio's Blog</title>
+    <title>Search - Chepeatio's Blog
+</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -26,6 +27,7 @@
     <link href="http://chepeatio.github.io/theme/css/font-awesome.min.css" rel="stylesheet">
 
     <link href="http://chepeatio.github.io/theme/css/pygments/native.css" rel="stylesheet">
+    <link href="http://chepeatio.github.io/theme/tipuesearch/tipuesearch.css" rel="stylesheet">
     <link rel="stylesheet" href="http://chepeatio.github.io/theme/css/style.css" type="text/css"/>
 
 
@@ -54,6 +56,11 @@ Chepeatio's Blog            </a>
                           </a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
+              <li><span>
+                <form class="navbar-search" action="/search.html">
+                  <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input" required>
+                </form></span>
+              </li>
               <li><a href="http://chepeatio.github.io/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
             </ul>
         </div>
@@ -65,47 +72,7 @@ Chepeatio's Blog            </a>
 <div class="container">
     <div class="row">
         <div class="col-sm-9">
-    <section id="tags">
-        <h1>Tags for Chepeatio's Blog</h1>
-        <div class="panel-group" id="accordion">            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse-eclipse">Eclipse <span class="badge pull-right">1</span></a>
-                    </h4>
-                </div>
-                <div id="collapse-eclipse" class="panel-collapse collapse">
-                    <div class="panel-body">
-                        <p><span class="categories-timestamp"><time datetime="2015-06-01T19:42:00+08:00">2015-06-01 19:42:00</time></span> <a href="http://chepeatio.github.io/tutorials/JUnit_Study_Notes.html">JUnit学习笔记</a></p>
-                    </div>
-                </div>
-            </div>
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse-junit">JUnit <span class="badge pull-right">1</span></a>
-                    </h4>
-                </div>
-                <div id="collapse-junit" class="panel-collapse collapse">
-                    <div class="panel-body">
-                        <p><span class="categories-timestamp"><time datetime="2015-06-01T19:42:00+08:00">2015-06-01 19:42:00</time></span> <a href="http://chepeatio.github.io/tutorials/JUnit_Study_Notes.html">JUnit学习笔记</a></p>
-                    </div>
-                </div>
-            </div>
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse-test">Test <span class="badge pull-right">1</span></a>
-                    </h4>
-                </div>
-                <div id="collapse-test" class="panel-collapse collapse">
-                    <div class="panel-body">
-                        <p><span class="categories-timestamp"><time datetime="2015-06-01T19:42:00+08:00">2015-06-01 19:42:00</time></span> <a href="http://chepeatio.github.io/tutorials/JUnit_Study_Notes.html">JUnit学习笔记</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </section>
+<div id="tipue_search_content"></div>
         </div>
         <div class="col-sm-3" id="sidebar">
             <aside>
@@ -141,11 +108,6 @@ Chepeatio's Blog            </a>
             <li class="list-group-item"><a href="http://chepeatio.github.io/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
                 <ul class="list-group " id="tags">
                     <li class="list-group-item tag-4">
-                        <a href="http://chepeatio.github.io/tag/test.html">
-                            Test
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
                         <a href="http://chepeatio.github.io/tag/junit.html">
                             JUnit
                         </a>
@@ -153,6 +115,11 @@ Chepeatio's Blog            </a>
                     <li class="list-group-item tag-4">
                         <a href="http://chepeatio.github.io/tag/eclipse.html">
                             Eclipse
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://chepeatio.github.io/tag/test.html">
+                            Test
                         </a>
                     </li>
                 </ul>
@@ -217,5 +184,17 @@ Chepeatio's Blog            </a>
     </script>
     <!-- End Google Analytics Code -->
 
+    <script type="text/javascript" src="http://chepeatio.github.io/theme/tipuesearch/tipuesearch_set.js"></script>
+    <script type="text/javascript" src="http://chepeatio.github.io/theme/tipuesearch/tipuesearch.min.js"></script>
+    <script>
+    $(document).ready(function() {
+      $('#tipue_search_input').tipuesearch({
+        'mode' : 'json',
+        'show': 10,
+        'newWindow': false,
+        'contentLocation': 'tipuesearch_content.json'
+      });
+    });
+    </script>
 </body>
 </html>
